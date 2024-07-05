@@ -3,13 +3,23 @@ import React from "react";
 import { colors } from "../constants/colors";
 import { fontSize, spacing } from "../constants/dimensions";
 import { fontFamily } from "../constants/fonts";
+import { useNavigation } from "@react-navigation/native";
 
 const imageUrl =
   "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694711060/Croma%20Assets/Communication/Wearable%20Devices/Images/301048_0_x1euf9.png";
 
 const ProductCard = ({ item }) => {
+  const navigation = useNavigation();
+
+  const handleProductDetailsScreen = () => {
+    navigation.navigate("PRODUCT_DETAILS", { item });
+  };
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={handleProductDetailsScreen}
+    >
       <View style={styles.imageWrapper}>
         <Image source={{ uri: item.image }} style={styles.productImage} />
       </View>
