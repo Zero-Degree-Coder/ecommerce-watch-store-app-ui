@@ -31,7 +31,7 @@ const ProductCarousel = ({ images }) => {
             </View>
           );
         }}
-        keyExtractor={(item, index) => item.id}
+        keyExtractor={(item, index) => index}
         horizontal
         onViewableItemsChanged={onViewRef.current}
         pagingEnabled={true}

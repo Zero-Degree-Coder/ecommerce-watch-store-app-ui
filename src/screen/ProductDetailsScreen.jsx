@@ -19,6 +19,7 @@ import { colors } from "../constants/colors";
 // icon
 import AntDesign from "react-native-vector-icons/AntDesign";
 import { fontFamily } from "../constants/fonts";
+import CartButton from "../components/CartButton";
 
 const colorsData = [
   {
@@ -41,7 +42,10 @@ const ProductDetailsScreen = () => {
   const item = useRoute().params.item;
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.scrollViewContainer}>
+      <ScrollView
+        style={styles.scrollViewContainer}
+        showsVerticalScrollIndicator={false}
+      >
         <Header />
         <ProductCarousel images={item.images} />
 
@@ -138,6 +142,8 @@ const ProductDetailsScreen = () => {
           {selectedTab === "Details" ? item.details : item.review}
         </Text>
       </ScrollView>
+      {/*add to cart button  */}
+      <CartButton />
     </View>
   );
 };
